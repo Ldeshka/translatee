@@ -1,0 +1,64 @@
+
+body{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+article{
+
+
+    background-color: #AAD4EE;
+    width: 1136px;
+    height: 100vh;
+    margin:  0 auto;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border{
+
+ border: 5px solid  #374E88;  
+ background-color: #CBEEF5;
+ padding: 30px;
+
+
+}
+
+.mova{
+
+    border-radius: 51px;
+    border: 3px solid #478AAC;
+    background-color: #BBE2F5;
+    color: #036B5F;
+    text-align: center;
+    font-size: 40px;
+    align-items: center;
+    justify-content: space-between ;
+    height: 80px;
+    
+}
+
+.strelochki{
+
+    width: 104px;
+    height: 104px;
+    margin-left: 20pxpx;
+    margin-right: 20px;
+    margin-top: 11px;
+}
+
+.pole{
+
+    width: 337px;
+    height: 350px;
+    background-color: #93D4D9;
+    border:4px solid  #036B5F;
+    display: flex;
+    border-radius: 51px;
+    
+}
