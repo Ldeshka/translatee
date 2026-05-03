@@ -1,0 +1,123 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #b6d8f2 0%, #cce8f8 45%, #aed0ef 100%);
+  padding: 20px;
+}
+
+.card {
+  background: #d4ecf9;
+  border: 2px solid #99b8e8;
+  border-radius: 26px;
+  padding: 40px 34px 36px;
+  width: 100%;
+  max-width: 370px;
+  box-shadow: 0 10px 40px rgba(70, 120, 200, 0.16);
+  animation: rise 0.45s cubic-bezier(.22,.68,0,1.2) both;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(22px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+
+.card h1 {
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: #253a8a;
+  text-align: center;
+  margin-bottom: 14px;
+  letter-spacing: -0.4px;
+}
+
+.card .login-hint {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a6ab8;
+  margin-bottom: 26px;
+}
+
+.card .login-hint a {
+  color: #2a48b8;
+  font-weight: 800;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.card .login-hint a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #253a8a;
+  margin-bottom: 7px;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid #aac4e8;
+  border-radius: 12px;
+  background: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #253a8a;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input::placeholder {
+  color: #b8cce0;
+  font-weight: 500;
+}
+
+.field input:focus {
+  border-color: #7aaae0;
+  box-shadow: 0 0 0 3.5px rgba(110, 160, 230, 0.2);
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  background: #a8caf0;
+  color: #1e3a9a;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 3px 12px rgba(90, 140, 220, 0.2);
+}
+
+.btn:hover {
+  background: #8cb8ec;
+  box-shadow: 0 6px 20px rgba(70, 130, 220, 0.28);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(70, 130, 220, 0.15);
+}
