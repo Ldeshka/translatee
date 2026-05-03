@@ -14,7 +14,7 @@ body {
 
     background-color: #AAD4EE;
     width: 1136px;
-    height: 100vh;
+    height: 130vh;
     margin: 0 auto;
 
     display: flex;
@@ -24,6 +24,7 @@ body {
     border-top-left-radius: 74px;
     border-top-right-radius: 74px;
     margin-top: 100px;
+    flex-direction: column;
 }
 
 .border {
@@ -40,18 +41,36 @@ body {
 .logo {
 
     display: flex;
-
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
 
 }
 
 
-.logo-img{
+.logo-img {
 
     width: 264px;
     height: 264px;
 
 
 
+}
+
+.logo-text {
+    font-size: 64px;
+    color: #222F74;
+    font-family: sans-serif;
+}
+
+.logo-button {
+    font-size: 34px;
+    width: 315px;
+    height: 79px;
+    border-radius: 29px;
+    background-color: #D5EEF6;
+    border: 2px solid #A7AAED;
+    color: #647F98;
 }
 
 
