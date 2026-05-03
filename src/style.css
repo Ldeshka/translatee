@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 body{
     background-color: white;
@@ -64,4 +65,147 @@ article{
 }
 .hide {
     display: none;
+=======
+body {
+
+    background-color: white;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+
+
+.main-body {
+
+
+    background-color: #AAD4EE;
+    width: 1136px;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 7px solid #8898E9;
+    border-top-left-radius: 74px;
+    border-top-right-radius: 74px;
+    margin-top: 100px;
+}
+
+.border {
+
+    border: 5px solid #374E88;
+    background-color: #CBEEF5;
+    padding: 30px;
+    flex-direction: column;
+
+
+}
+
+
+.logo {
+
+    display: flex;
+
+
+}
+
+
+.logo-img{
+
+    width: 264px;
+    height: 264px;
+
+
+
+}
+
+
+
+.mova {
+
+    border-radius: 51px;
+    border: 3px solid #478AAC;
+    background-color: #BBE2F5;
+    color: #036B5F;
+    text-align: center;
+    font-size: 40px;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+
+}
+
+.strelochki {
+
+    width: 104px;
+    height: 104px;
+    margin-left: 20pxpx;
+    margin-right: 20px;
+    margin-top: 11px;
+}
+
+.pole {
+
+    width: 337px;
+    height: 350px;
+    background-color: #93D4D9;
+    border: 4px solid #036B5F;
+    display: flex;
+    border-radius: 51px;
+
+}
+
+.translatebutton {
+
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    background-color: #88D1E4;
+    border: 3px solid #5F87B0;
+    border-radius: 10px;
+
+}
+
+.translate-button-block {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+
+}
+
+footer {
+
+    background-color: #95C9F1;
+    border: 7px solid #87ADE3;
+    width: 1136px;
+    height: 187px;
+    margin: 0 auto;
+    border-bottom-right-radius: 74px;
+    border-bottom-left-radius: 74px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.logica-img {
+    margin-left: 13px;
+    margin-top: 21px;
+    margin-bottom: 50px;
+}
+
+
+.copyright {
+
+    color: #508FED;
+    font-size: 40px;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    padding-right: 150px;
+
+>>>>>>> ab2e4c746619f51139dbc255704969217e45fa11
 }
