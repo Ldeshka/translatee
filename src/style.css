@@ -62,3 +62,6 @@ article{
     border-radius: 51px;
     
 }
+.hide {
+    display: none;
+}
