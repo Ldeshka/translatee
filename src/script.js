@@ -1,59 +1,105 @@
+// --- Селектори ---
+const placeholderBtn = document.querySelector(".trans-btn");
+const formBtn = document.querySelector(".submit-btn");
+const logoutBtn = document.querySelector(".logout-btn"); // Кнопка реєстрації/виходу
+const article = document.querySelector(".main-body");
+const formBlock = document.querySelector(".form");
+const strelochki = document.querySelector(".strelochki");
 
-let placeholderBtn = document.querySelector(".trans-btn")
-let formBtn = document.querySelector(".submit-btn")
-if (getCookie("name") != undefined) {
-    if (getCookie("password") != undefined) {
-        document.querySelector("article").classList.remove("hide")
-        document.querySelector(".form").classList.add("hide")
+const nameInput = document.querySelector(".name-input");
+const passInput = document.querySelector(".password-input");
+
+const textAreaFrom = document.querySelector(".from");
+const textAreaTo = document.querySelector(".to");
+const selectFrom = document.querySelector(".lang-from");
+const selectTo = document.querySelector(".lang-to");
+
+// --- Логіка ініціалізації ---
+function checkAuth() {
+    if (getCookie("name") && getCookie("password")) {
+        article.classList.remove("hide");
+        formBlock.classList.add("hide");
+    } else {
+        article.classList.add("hide");
+        formBlock.classList.remove("hide");
     }
-    else (
-        document.querySelector(".name-input").classList.add("hide")
-    )
-    
 }
 
+checkAuth();
+
+// --- Авторизація ---
 formBtn.onclick = function() {
-    document.querySelector("article").classList.remove("hide")
-    document.querySelector(".form").classList.add("hide")
-    createCookie("name", document.querySelector(".name-input").value, "100000")
-    createCookie("password", document.querySelector(".password-input").value, "36000")
-}
+    if (nameInput.value.trim() !== "" && passInput.value.trim() !== "") {
+        createCookie("name", nameInput.value, 100000);
+        createCookie("password", passInput.value, 100000);
+        checkAuth();
+    } else {
+        alert("Будь ласка, заповніть всі поля!");
+    }
+};
+
+// --- "Зареєструватися" (Вихід) ---
+logoutBtn.onclick = function() {
+    deleteCookie("name");
+    deleteCookie("password");
+    nameInput.value = "";
+    passInput.value = "";
+    checkAuth();
+    alert("Ви вийшли з системи для нової реєстрації.");
+};
+
+// --- Переклад ---
 placeholderBtn.onclick = function() {
-    console.log("2")
-    let textFrom = document.querySelector(".from").value
-    let langFrom = document.querySelector(".lang-from").value
-    let langTo = document.querySelector(".lang-to").value
-    console.log(textFrom, langFrom, langTo)
-    translate(textFrom, langFrom, langTo)
+    const text = textAreaFrom.value;
+    const from = selectFrom.value;
+    const to = selectTo.value;
+
+    if (text.trim() !== "") {
+        translate(text, from, to);
+    }
+};
+
+// Реверс мов
+strelochki.onclick = function() {
+    const tempLang = selectFrom.value;
+    selectFrom.value = selectTo.value;
+    selectTo.value = tempLang;
+};
+
+async function translate(text, langFrom, langTo) {
+    textAreaTo.value = "Перекладаю...";
     
+    try {
+        const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${langFrom}|${langTo}`);
+        const data = await response.json();
+        
+        if (data.responseData) {
+            textAreaTo.value = data.responseData.translatedText;
+        } else {
+            textAreaTo.value = "Помилка API";
+        }
+    } catch (error) {
+        console.error("Помилка:", error);
+        textAreaTo.value = "Помилка мережі";
+    }
 }
 
+// --- Cookie Helpers ---
 function createCookie(name, value, time) {
-    document.cookie = `${name}=${value}; max-age = ${time}`
-    console.log(document.cookie)
+    document.cookie = `${name}=${value}; max-age=${time}; path=/`;
 }
 
 function getCookie(name) {
     const cookies = document.cookie.split('; ');
     for (let i = 0; i < cookies.length; i++) {
-        const parts = cookies[i].split('=')
-        if (parts[0] == name) {
-            console.log(parts[0])
-            return parts[1]
+        const parts = cookies[i].split('=');
+        if (parts[0] === name) {
+            return parts[1];
         }
     }
+    return undefined;
 }
-document.querySelector(".strelochki").onclick = function() {
-    console.log("4")
-    let langFromBefore = document.querySelector(".lang-from").value
-    document.querySelector(".lang-from").value = document.querySelector(".lang-to").value
-    document.querySelector(".lang-to").value = langFromBefore
-    console.log(document.querySelector(".lang-from").value)
-}
-async function translate(text, langFrom, langTo) {
-    let to = document.querySelector(".to")
-    const response = await fetch(`https://api.mymemory.translated.net/get?q=${text}&langpair=${langFrom}|${langTo}`);
-    let data = await response.json();
-    console.log(data.responseData.translatedText)
-    to.value =  data.responseData.translatedText
+
+function deleteCookie(name) {
+    document.cookie = name + '=; max-age=0; path=/';
 }

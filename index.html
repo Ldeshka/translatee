@@ -1,58 +1,65 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="uk">
 <head>
-  <link rel="stylesheet" href="src/style.css" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перекладач</title>
+    <link rel="stylesheet" href="src/style.css">
 </head>
-<header>
-
-</header>
-
-
 <body>
 
-  <article class="main-body">
-    <div class="logo">
-      <div style="display: flex; justify-content: center; align-items: center; gap:1px">
-        <img class="logo-img" src="assets/googletranslate 1.png" alt="logo">
-        <h1 class="logo-text">Перекладач</h1>
-      </div>
-
-      <button class="logo-button">Зареєструватися</button>
+    <!-- Блок авторизації -->
+    <div class="form">
+        <h2>Вхід</h2>
+        <input type="text" class="name-input" placeholder="Ваше ім'я">
+        <input type="password" class="password-input" placeholder="Пароль">
+        <button class="submit-btn">Увійти</button>
     </div>
-    <div class="border">
 
-      <div style="display: flex">
-        <select class="mova">
-          <option value="UA">Визначити мову</option>
-        </select>
-        <img class="strelochki" src="assets/Untitled 1.png" alt="strelochki" />
-        <select class="mova">
-          <option value="UK">Українська</option>
-          <option value="PL">Польська</option>
-          <option value="EN">Англійська</option>
-        </select>
-      </div>
-      <div style="display: flex; justify-content: space-around; gap: 50px">
-        <textarea class="pole"></textarea>
+    <!-- Основний інтерфейс перекладача -->
+    <article class="main-body hide">
+        <div class="logo">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 10px">
+                <img class="logo-img" src="assets/googletranslate 1.png" alt="logo" width="40">
+                <h1 class="logo-text">Перекладач</h1>
+            </div>
+            <!-- Додано клас logout-btn -->
+            <button class="logo-button logout-btn">Зареєструватися</button>
+        </div>
 
-        <textarea class="pole"></textarea>
-      </div>
-      <div class="translate-button-block">
-        <button class=" translatebutton">Перекласти</button>
-      </div>
+        <div class="border">
+            <div class="controls" style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 20px;">
+                <select class="mova lang-from">
+                    <option value="uk">Українська</option>
+                    <option value="en">Англійська</option>
+                    <option value="pl">Польська</option>
+                </select>
 
-  </article>
-  <footer>
+                <img class="strelochki" src="assets/Untitled 1.png" alt="змінити" style="cursor: pointer;">
 
-    <img class="logica-img" src="assets/Untitled 2.png" alt="logica">
-    <p class="copyright">@Copyright</p>
+                <select class="mova lang-to">
+                    <option value="en">Англійська</option>
+                    <option value="uk">Українська</option>
+                    <option value="pl">Польська</option>
+                </select>
+            </div>
 
+            <div style="display: flex; justify-content: center; gap: 20px">
+                <textarea class="pole from" placeholder="Введіть текст..."></textarea>
+                <textarea class="pole to" placeholder="Переклад з'явиться тут" readonly></textarea>
+            </div>
 
-  </footer>
+            <div class="translate-button-block">
+                <button class="translatebutton trans-btn">Перекласти</button>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <img class="logica-img" src="assets/Untitled 2.png" alt="logica">
+        <p class="copyright">@Copyright 2026</p>
+    </footer>
+
+    <script src="src/script.js"></script>
 </body>
-
 </html>
